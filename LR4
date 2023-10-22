@@ -1,6 +1,8 @@
+# %%
 import random
 import numpy as np
 import matplotlib.pyplot as plt
+import pandas as pd
 
 def my_rand1(n): 
     rand_list=[]
@@ -9,7 +11,7 @@ def my_rand1(n):
     print(rand_list)
 
 def my_rand2(n):
-    res = random.sample(range(1, 50), n)
+    res = random.sample(range(1, 6), n)
     print ("Random number list is : " +  str(res)) 
 
 def my_rand3(n):
@@ -28,6 +30,7 @@ def my_rand5(n):
 def my_rand6(n):
     print(np.random.random_sample(size = n))
 
+# %%
 def kubik(n: int) -> list:
     data = []
     while len(data) <n:
@@ -69,6 +72,55 @@ def probability_solving(dataframe: pd.DataFrame):
     dataframe['Вероятность'] = probability
     return dataframe
 
+# %%
+kubik_l = kubik(100)
+print(kubik_l)
+cr = count_rate(kubik_l)
+print(cr)
+sr = sort_rate(cr)
+print(sr)
+cdf = crate_dataframe(sr)
+print(cdf)
+ps = probability_solving(cdf)
+print(ps)
 
-a = proba['Вероятность'].plot(kind='bar', legend=True)
-a.figure.savefig('Вероятность.png')
+# %%
+kubik_ll = kubik(10000)
+print(kubik_ll)
+crl = count_rate(kubik_l)
+print(crl)
+srl = sort_rate(crl)
+print(srl)
+cdfl = crate_dataframe(srl)
+print(cdfl)
+psl = probability_solving(cdfl)
+print(psl)
+
+# %%
+kubik_lll = kubik(1000000)
+print(kubik_lll)
+crll = count_rate(kubik_ll)
+print(crll)
+srll = sort_rate(crll)
+print(srll)
+cdfll = crate_dataframe(srll)
+print(cdfll)
+psll = probability_solving(cdfll)
+print(psll)
+
+# %%
+a = ps.plot(kind='bar', legend=True)
+
+# %%
+a = psl.plot(kind='bar', legend=True)
+
+# %%
+a = psll.plot(kind='bar', legend=True)
+
+# %%
+
+
+# %%
+
+
+
